@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %}
+{% block title %}Register — TaskApp{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+    <div class="card shadow-sm" style="width: 420px;">
+        <div class="card-body p-4">
+            <h4 class="fw-bold mb-1"><i class="bi bi-check2-square me-2 text-primary"></i>TaskApp</h4>
+            <p class="text-muted mb-4">Create your account</p>
+
+            <form action="{{ url_for('auth.register') }}" method="POST">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Full Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="John Doe" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="you@email.com" required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Min 6 characters" required minlength="6">
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">Create Account</button>
+            </form>
+
+            <hr class="my-4">
+            <p class="text-center text-muted mb-0">
+                Already have an account?
+                <a href="{{ url_for('auth.login') }}" class="fw-semibold">Sign In</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
